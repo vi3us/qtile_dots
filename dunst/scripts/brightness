@@ -1,0 +1,30 @@
+#!/bin/bash
+
+max_brightness=$(brillo -m)
+max_brightness=${max_brightness%.*}
+
+current_brightness=$(brillo -G)
+current_brightness=${current_brightness%.*}
+
+brightness_percentage=$((($current_brightness * 100) / $max_brightness))
+
+down() {
+    brillo -U 5
+    current_brightness=$(brillo -G)
+    current_brightness=${current_brightness%.*}
+    brightness_percentage=$((($current_brightness * 100)/$max_brightness))
+    dunstify -a "BRIGHTNESS" "Decreasing to $brightness_percentage%" -h int:value:"$brightness_percentage" -i display-brightness-symbolic -r 2593 -u normal
+}
+
+up() {
+    brillo -A 5
+    current_brightness=${current_brightness%.*}
+    brightness_percentage=$((($current_brightness * 100)/$max_brightness))
+    dunstify -a "BRIGHTNESS" "Increasing to $brightness_percentage%" -h int:value:"$brightness_percentage" -i display-brightness-symbolic -r 2593 -u normal
+}
+case "$1" in
+  up) up;;
+  down) down;;
+esac
+
+
