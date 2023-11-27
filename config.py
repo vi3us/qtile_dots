@@ -73,6 +73,8 @@ keys = [
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Skip to previous"),
 
     Key([mod, "mod1"], "l", lazy.spawn("betterlockscreen -l"), desc="lock screen"),
+    Key(["control", "shift"], "Escape", lazy.spawn("xkill"), desc="xkill"),
+
 
 ]
 
