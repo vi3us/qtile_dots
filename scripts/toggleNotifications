@@ -1,0 +1,11 @@
+#!/bin/bash
+TMP=$(dunstctl is-paused)
+if [[ "$TMP" == "false" ]]; then
+    dunstify "mute notifications in 1s" ""
+    sleep 2
+    dunstctl set-paused true
+else
+    dunstctl set-paused false
+    dunstctl close
+fi
+

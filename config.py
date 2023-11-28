@@ -10,7 +10,7 @@ file_manger = "nemo"
 browser = "firefox"
 icons = "~/.config/qtile/icons/"
 scripts = "~/.config/qtile/scripts/"
-auto_minimize = False
+auto_minimize = True
 
 import os
 import subprocess
@@ -76,7 +76,7 @@ keys = [
     Key([mod, "mod1"], "l", lazy.spawn("betterlockscreen -l"), desc="lock screen"),
     Key(["control", "shift"], "Escape", lazy.spawn("xkill"), desc="xkill"),
     Key([mod, "shift"], "s", lazy.spawn(expanduser(scripts + "screenshot"),shell=True)),
-    Key(["control", "shift"], "n", lazy.spawn("dunstctl set-paused toggle"), desc="screenshot"),
+    Key(["control", "shift"], "n", lazy.spawn(expanduser(scripts + "toggleNotifications"),shell=True)),
 
 ]
 
