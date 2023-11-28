@@ -1,0 +1,4 @@
+#!/bin/bash
+tmp=$(date +"%Y-%m-%d_%T".jpg)
+xfce4-screenshooter -rs /home/jor/Pictures/Screenshot/"${tmp}"
+dunstify "screenshoot taken " ""

@@ -9,6 +9,7 @@ terminal = "kitty"
 file_manger = "nemo"
 browser = "firefox"
 icons = "~/.config/qtile/icons/"
+scripts = "~/.config/qtile/scripts/"
 auto_minimize = False
 
 import os
@@ -74,7 +75,7 @@ keys = [
 
     Key([mod, "mod1"], "l", lazy.spawn("betterlockscreen -l"), desc="lock screen"),
     Key(["control", "shift"], "Escape", lazy.spawn("xkill"), desc="xkill"),
-    Key([mod, "shift"], "s", lazy.spawn("gscreenshot -nscf /home/jor/Pictures/Screenshot"), desc="screenshot"),
+    Key([mod, "shift"], "s", lazy.spawn(expanduser(scripts + "screenshot"),shell=True)),
     Key(["control", "shift"], "n", lazy.spawn("dunstctl set-paused toggle"), desc="screenshot"),
 
 ]
