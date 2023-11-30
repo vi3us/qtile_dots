@@ -137,7 +137,7 @@ layouts = [
 widget_defaults = dict(
     font="Source Code Pro bold",
     fontsize=17,
-    padding=15,
+    margin_y=0,
 )
 extension_defaults = widget_defaults.copy()
 
