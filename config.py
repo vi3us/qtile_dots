@@ -77,6 +77,7 @@ keys = [
     Key(["control", "shift"], "Escape", lazy.spawn("xkill"), desc="xkill"),
     Key([mod, "shift"], "s", lazy.spawn(expanduser(scripts + "screenshot"),shell=True)),
     Key(["control", "shift"], "n", lazy.spawn(expanduser(scripts + "toggleNotifications"),shell=True)),
+    Key([mod], "b", lazy.hide_show_bar(), desc="toggle the bar"),
 
 ]
 
